@@ -1,6 +1,6 @@
 # zq-layer
 
-> A Vue.js project
+> 弹窗小插件
 
 ## Build Setup
 

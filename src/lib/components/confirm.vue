@@ -4,7 +4,7 @@
 
 <script>
     export default {
-        name: "layer"
+        name: "confirm"
     }
 </script>
 
