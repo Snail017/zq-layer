@@ -1,5 +1,5 @@
 import confirm  from './components/confirm'
-let $vm // 存储Vue实例
+let $vm ;// 存储Vue实例
 let zq={};
 
 zq.install = function (Vue, options) {
@@ -27,8 +27,8 @@ zq.install = function (Vue, options) {
             $vm.btn=options.btn||['确定','取消']
         }
         // 给对象赋值
-        $vm.message = message || 'message'
-        $vm.show = true,
+        $vm.message = message || 'message';
+        $vm.show = true;
 
         // 挂载到dom中
         document.body.appendChild($vm.$el)
