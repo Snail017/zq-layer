@@ -1,0 +1,42 @@
+{
+  "name": "zq-layer",
+  "description": "A Vue.js project",
+  "version": "1.0.0",
+  "author": "zhangqian@weile.com <zhangqian@weile.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+  },
+  "dependencies": {
+    "vue": "^2.5.11"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-stage-3": "^6.24.1",
+    "cross-env": "^5.0.5",
+    "css-loader": "^0.28.7",
+    "file-loader": "^1.1.4",
+    "vue-loader": "^13.0.5",
+    "vue-template-compiler": "^2.4.4",
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.9.1"
+  },
+  "main": "dist/zq-layer.js", // 这个超级重要 决定了你 import xxx from “vue-pay-keyboard” 它默认就会去找 dist下的vue-pay-keyboard 文件
+  "files": [  // 用于发布忽略 当我们的包够复杂的时候 我们总不能把所有本地开发或者测试的组件全部都发布上去 这个时候我们开启这个选项 意为只发布这两个文件 当然我们这个包比较简单 就不开启了
+    "dist",
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yucccc/vue-pay-keyboard"
+  } // 配置这个地址存放你项目在github上的位置 也尤为重要
+}
