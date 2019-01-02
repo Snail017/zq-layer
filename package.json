@@ -2,10 +2,17 @@
   "name": "zq-layer",
   "description": "A Vue.js project",
   "version": "1.0.0",
-  "author": "zhangqian@weile.com <zhangqian@weile.com>",
+  "author": "zhangqian",
   "license": "MIT",
   "main":"dist/zq-layer.js",
-  "private": true,
+  "private": false,
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Snail017/zq-layer.git"
+  },
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
