@@ -8,7 +8,7 @@ let zq = {
         // 扩展构造对象
         let $vm;// 存储Vue实例
         // 1. 添加全局方法或属性
-        Vue.myGlobalMethod = function () {        }
+        Vue.myGlobalMethod = function () {}
 
         // 2. 添加全局资源
         Vue.directive('my-directive', {})
