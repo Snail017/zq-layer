@@ -1,7 +1,7 @@
 {
   "name": "zsimlayer",
   "description": "A Vue.js project",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "zhangqian",
   "license": "MIT",
   "private": false,
@@ -13,13 +13,14 @@
     "vue",
     "zsimlayer"
   ],
+  "main": "dist/zsimlayer",
   "files": [
     "dist",
     "lib"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Snail017/zq-layer.git"
+    "url": "https://github.com/Snail017/zsimlayer.git"
   },
   "dependencies": {
     "vue": "^2.5.11"
