@@ -7,7 +7,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
-    filename: 'zq-layer.js'
+    filename: 'zsimlayer.js'
   },
   module: {
     rules: [

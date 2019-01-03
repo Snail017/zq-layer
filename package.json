@@ -1,7 +1,7 @@
 {
-  "name": "zq-layer",
+  "name": "zsimlayer",
   "description": "A Vue.js project",
-  "version": "1.0.3",
+  "version": "1.0.0",
   "author": "zhangqian",
   "license": "MIT",
   "private": false,
@@ -11,7 +11,7 @@
   },
   "keywords": [
     "vue",
-    "zq-layer"
+    "zsimlayer"
   ],
   "files": [
     "dist",
