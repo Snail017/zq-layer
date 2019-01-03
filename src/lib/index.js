@@ -1,39 +1,84 @@
-import confirm  from './components/confirm'
-let $vm ;// 存储Vue实例
-let zq={};
-
-zq.install = function (Vue, options) {
-    // 不重复install
-    if (zq.installed) return
-    zq.installed = true
-    // 1. 添加全局方法或属性
-    Vue.myGlobalMethod = function () {    }
-    // 2. 添加全局资源
-    Vue.directive('my-directive', {    })
-    // 3. 通过全局mixin方法添加一些组件选项
-    Vue.mixin({})
-    // 4. 添加实例方法
-    Vue.prototype.$confirm = function (message, options ,callback ) {
+import confirm from './components/confirm'
+import msg from './components/msg'
+let zq = {
+    install(Vue, options) {
+        // 不重复install
+        if (zq.installed) return
+        zq.installed = true;
         // 扩展构造对象
-        let Ext = Vue.extend(confirm)
-        if (!$vm) {
-            // 实例化一个对象
-            $vm = new Ext({
-                el: document.createElement('div')
-            })
-        }
-        var type = typeof options === 'function';
-        if(type){
-            $vm.btn=options.btn||['确定','取消']
-        }
-        // 给对象赋值
-        $vm.message = message || 'message';
-        $vm.show = true;
+        let $vm;// 存储Vue实例
+        // 1. 添加全局方法或属性
+        Vue.myGlobalMethod = function () {        }
 
-        // 挂载到dom中
-        document.body.appendChild($vm.$el)
+        // 2. 添加全局资源
+        Vue.directive('my-directive', {})
+        // 3. 通过全局mixin方法添加一些组件选项
+        Vue.mixin({})
+        // 4. 添加实例方法
+
+        /**
+         * 实例化组件方法
+         **/
+        Vue.$instance=function(component){
+            let Ext = Vue.extend(component);
+
+            if (!$vm) {
+                // 实例化一个对象
+                $vm = new Ext({
+                    el: document.createElement('div')
+                })
+            }
+            // 挂载到dom中
+            document.body.appendChild($vm.$el);
+        },
+        Vue.prototype.$hide = function () {
+            $vm.show = false;
+        },
+        Vue.prototype.$msg=function(message, options){
+
+           Vue.$instance(msg)
+
+            $vm.message = message;
+            var type = typeof options === 'object';
+            console.log(type)
+            if (type) {
+                // 给对象赋值
+                $vm.Zindex = options.Zindex;
+                $vm.duration = options.duration||20000;
+                $vm.masked=options.masked;
+            }
+            setTimeout(()=>{
+                $vm.show =false;
+            },$vm.duration)
+            $vm.show = true;
+
+        },
+        Vue.prototype.$confirm = function (message, options) {
+
+            Vue.$instance(confirm)
+
+            var type = typeof options === 'object';
+
+            if (type) {
+                $vm.btn = options.btn || ['确定', '取消'];
+                for (let value in options.btnFun) {
+                    console.log(value);
+                    $vm.btnFun = function (e, index) {
+                        let ty = typeof options.btnFun[index] == 'function';
+                        if (ty) {
+                            options.btnFun[index]();
+                        }
+                    }
+                }
+            }
+            ;
+            // 给对象赋值
+            $vm.Zindex = options.Zindex || 999;
+            $vm.message = message || 'message';
+            $vm.show = true;
+        }
 
     }
+};
 
-}
-module.exports = zq;
+export default zq;
